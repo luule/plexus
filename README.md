@@ -1,4 +1,4 @@
-## Available Scripts
+## Plexus React 
 
 In the project directory, you can run:
 
