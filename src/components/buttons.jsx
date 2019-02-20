@@ -7,7 +7,7 @@ class Buttons extends Component {
       secondaryButton = (
         <button
           type="button"
-          className="btn btn-secondary btn-lg"
+          className="btn btn-secondary btn-lg col-2 m-5"
           onClick={this.props.onSecondaryClick}
         >
           {this.props.labelSecondary}
@@ -15,11 +15,11 @@ class Buttons extends Component {
       );
     }
     return (
-      <div className="form-group">
+      <div className="form-group row justify-content-center">
         {secondaryButton}
         <button
           type="button"
-          className="btn btn-primary btn-lg"
+          className="btn btn-primary btn-lg col-2 m-5"
           onClick={this.props.onPrimaryClick}
         >
           {this.props.labelPrimary}

@@ -36,8 +36,9 @@ class FirstPage extends Component {
         result => {
           let userList = [...result.results];
           userList.forEach(user => {
-            user.fullName =
-              user.name.title + " " + user.name.first + " " + user.name.last;
+            user.fullName = `${user.name.title} ${user.name.first} ${
+              user.name.last
+            }`.toLocaleUpperCase();
           });
           this.setState({
             userList: userList
@@ -56,8 +57,8 @@ class FirstPage extends Component {
   handleChangeAutocomplete = selected => {
     if (selected && selected[0]) {
       this.setState({
-        firstName: selected[0].name.first,
-        lastName: selected[0].name.last,
+        firstName: selected[0].name.first.toLocaleUpperCase(),
+        lastName: selected[0].name.last.toLocaleUpperCase(),
         selectedUser: selected
       });
     }
@@ -112,7 +113,7 @@ class FirstPage extends Component {
       );
     }
     return (
-      <div className="container">
+      <div className="p-5">
         <form id="myForm" className="needs-validation" noValidate>
           <DropDown
             label={"Store Type"}

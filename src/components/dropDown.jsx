@@ -4,7 +4,9 @@ class DropDown extends Component {
   render() {
     return (
       <div className="form-group">
-        <label htmlFor={this.props.id}>{this.props.label}</label>
+        <label htmlFor={this.props.id} className="font-weight-bold">
+          {this.props.label}
+        </label>
         <select
           name={this.props.label}
           id={this.props.id}

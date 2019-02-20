@@ -4,7 +4,9 @@ class RadioButton extends Component {
   render() {
     return (
       <div className="form-group">
-        <div htmlFor={this.props.label}>{this.props.label}</div>
+        <div htmlFor={this.props.label} className="font-weight-bold">
+          {this.props.label}
+        </div>
         <div className="form-check form-check-inline">
           <input
             type="radio"

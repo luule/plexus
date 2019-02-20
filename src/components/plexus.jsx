@@ -10,8 +10,10 @@ class Plexus extends Component {
       <Router>
         <div>
           <Header />
-          <Route exact path="/" component={FirstPage} />
-          <Route path="/final" component={FinalPage} />
+          <div className="container">
+            <Route exact path="/" component={FirstPage} />
+            <Route path="/final" component={FinalPage} />
+          </div>
         </div>
       </Router>
     );

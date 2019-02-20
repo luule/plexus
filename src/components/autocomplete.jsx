@@ -12,7 +12,9 @@ class AutoComplete extends Component {
     this.addValidation();
     return (
       <div id="userLookup" className="form-group">
-        <label htmlFor={this.props.label}>{this.props.label}</label>
+        <label htmlFor={this.props.label} className="font-weight-bold">
+          {this.props.label}
+        </label>
         <Typeahead
           onChange={selected => this.props.onChange(selected)}
           options={this.props.options}

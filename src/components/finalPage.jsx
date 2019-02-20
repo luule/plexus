@@ -3,6 +3,7 @@ import InputControl from "./inputControl";
 import DropDown from "./dropDown";
 import Buttons from "./buttons";
 import RadioButton from "./radioButton";
+import Process from "./process";
 
 class FinalPage extends Component {
   constructor(props) {
@@ -13,6 +14,8 @@ class FinalPage extends Component {
       joinDate: "",
       victoriaLocated: "",
       victoriaAddress: "",
+      inProcess: true,
+      isSuccess: true,
       userRoleList: [
         { id: 1, value: "Dev" },
         { id: 2, value: "Manager" },
@@ -58,6 +61,10 @@ class FinalPage extends Component {
     }
   };
 
+  backToHome = () => {
+    this.props.history.push("/");
+  };
+
   handleBackClick = () => {
     this.props.history.push({
       pathname: "/",
@@ -74,6 +81,7 @@ class FinalPage extends Component {
   handleSubmitClick = () => {
     let form = document.getElementById("finalForm");
     if (form.checkValidity() === true) {
+      this.setState({ inProcess: true });
       const userData = {
         ...this.props.location.states.previous,
         ...this.state
@@ -86,6 +94,7 @@ class FinalPage extends Component {
         data: JSON.stringify(userData)
       }).then(
         result => {
+          this.setState({ isSuccess: true });
           console.log(result);
         },
         error => {
@@ -110,8 +119,14 @@ class FinalPage extends Component {
       );
     }
     return (
-      <div className="container">
-        <form id="finalForm" noValidate>
+      <div className="p-5">
+        <form
+          id="finalForm"
+          noValidate
+          style={{
+            display: !this.state.inProcess ? "" : "none"
+          }}
+        >
           <DropDown
             label={"What is the users role ?"}
             id={"userRole"}
@@ -146,6 +161,13 @@ class FinalPage extends Component {
             onSecondaryClick={this.handleBackClick}
           />
         </form>
+        <div
+          style={{
+            display: this.state.inProcess ? "" : "none"
+          }}
+        >
+          <Process isSuccess={this.state.isSuccess} onClick={this.backToHome} />
+        </div>
       </div>
     );
   }
