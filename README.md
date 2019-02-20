@@ -1,4 +1,6 @@
-## Plexus React 
+## Plexus
+
+Download/clone source code.
 
 In the project directory, you can run:
 
