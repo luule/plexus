@@ -1,25 +1,6 @@
 import React from "react";
 
 const Process = props => {
-  let processing = (
-    <div>
-      <div className="d-flex justify-content-center">
-        <div className="spinner-border text-primary" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div>
-      <div className="row justify-content-center text-primary m-3">
-        <h3>Submitting Data</h3>
-      </div>
-    </div>
-  );
-  let result = (
-    <div>
-      <div className="row justify-content-center text-success m-3">
-        <h3>Data Submitted Successfully !</h3>
-      </div>
-    </div>
-  );
   return (
     <div>
       <div

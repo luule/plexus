@@ -80,15 +80,33 @@ class FinalPage extends Component {
   handleSubmitClick = () => {
     let form = document.getElementById("finalForm");
     if (form.checkValidity() === true) {
+      // Set loading status
       this.setState({ inProcess: true });
-      const userData =
-        this.props.location.states && this.props.location.states.previous
-          ? {
-              ...this.props.location.states.previous,
-              ...this.state
-            }
-          : { ...this.state };
-      console.log(userData);
+      // Prepare data before sending to server
+      let current = { ...this.state },
+        previous =
+          this.props.location.states && this.props.location.states.previous
+            ? this.props.location.states.previous
+            : undefined;
+
+      let userData = {
+        storeType: previous
+          ? previous.storeTypeList.find(
+              store => store.id.toString() === previous.storeType
+            )
+          : "",
+        details: previous ? previous.details : "",
+        selectedUser: previous ? previous.selectedUser[0] : "",
+        firstName: previous ? previous.firstName : "",
+        lastName: previous ? previous.lastName : "",
+        userRole: current.userRoleList.find(
+          role => role.id.toString() === current.userRole
+        ),
+        joinDate: current.joinDate,
+        victoriaLocated: current.victoriaLocated,
+        victoriaAddress: current.victoriaAddress
+      };
+      // URL to server with CORS proxy
       const myProxy = "https://cors-anywhere.herokuapp.com/";
       const url = "	http://webhook.site/0514131a-a967-4e57-8e89-5c26c0d82f94";
       fetch(myProxy + url, {

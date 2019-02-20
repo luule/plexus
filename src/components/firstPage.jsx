@@ -35,6 +35,7 @@ class FirstPage extends Component {
       .then(
         result => {
           let userList = [...result.results];
+          // Set full name for each user
           userList.forEach(user => {
             user.fullName = `${user.name.title} ${user.name.first} ${
               user.name.last
