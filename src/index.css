@@ -12,3 +12,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.my-form {
+  border: solid 1px #f8f9fa;
+  border-radius: 50px;
+  background-color: #f8f9fa;
+}

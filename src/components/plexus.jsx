@@ -11,8 +11,10 @@ class Plexus extends Component {
         <div>
           <Header />
           <div className="container">
-            <Route exact path="/" component={FirstPage} />
-            <Route path="/final" component={FinalPage} />
+            <div className="row justify-content-center">
+              <Route exact path="/" component={FirstPage} />
+              <Route path="/final" component={FinalPage} />
+            </div>
           </div>
         </div>
       </Router>

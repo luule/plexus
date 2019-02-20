@@ -113,8 +113,8 @@ class FirstPage extends Component {
       );
     }
     return (
-      <div className="p-5">
-        <form id="myForm" className="needs-validation" noValidate>
+      <div className="col-6 m-5 p-5 my-form">
+        <form id="myForm" noValidate>
           <DropDown
             label={"Store Type"}
             id={"storeType"}

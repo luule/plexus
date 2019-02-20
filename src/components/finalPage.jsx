@@ -14,8 +14,8 @@ class FinalPage extends Component {
       joinDate: "",
       victoriaLocated: "",
       victoriaAddress: "",
-      inProcess: true,
-      isSuccess: true,
+      inProcess: false,
+      isSuccess: false,
       userRoleList: [
         { id: 1, value: "Dev" },
         { id: 2, value: "Manager" },
@@ -119,7 +119,7 @@ class FinalPage extends Component {
       );
     }
     return (
-      <div className="p-5">
+      <div className="col-6 m-5 p-5 my-form">
         <form
           id="finalForm"
           noValidate
