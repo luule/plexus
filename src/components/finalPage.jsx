@@ -55,7 +55,6 @@ class FinalPage extends Component {
       case "victoriaAddress":
         this.setState({ victoriaAddress: e.target.value });
         break;
-
       default:
         break;
     }
@@ -82,10 +81,13 @@ class FinalPage extends Component {
     let form = document.getElementById("finalForm");
     if (form.checkValidity() === true) {
       this.setState({ inProcess: true });
-      const userData = {
-        ...this.props.location.states.previous,
-        ...this.state
-      };
+      const userData =
+        this.props.location.states && this.props.location.states.previous
+          ? {
+              ...this.props.location.states.previous,
+              ...this.state
+            }
+          : { ...this.state };
       console.log(userData);
       const myProxy = "https://cors-anywhere.herokuapp.com/";
       const url = "	http://webhook.site/0514131a-a967-4e57-8e89-5c26c0d82f94";
